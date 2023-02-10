@@ -9,6 +9,7 @@ const Footer = () => {
         <a
           title="GitHub - Profile"
           target="_blank"
+          rel="noreferrer"
           href="https://github.com/code0verdose"
         >
           code0verdose

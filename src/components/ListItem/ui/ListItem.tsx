@@ -5,14 +5,14 @@ import { Button } from "../../Button/ui/Button";
 import { removeTodo, toggleIsDone } from "../../../store/todoSlice";
 import { useAppDispatch } from "../../../app/global/hooks/hook";
 
-interface ListItemProp {
+interface ListItemProps {
   className?: string;
   text: string;
   id: string;
   isDone: boolean;
 }
 
-const ListItem: React.FC<ListItemProp> = ({ className, text, id, isDone }) => {
+const ListItem: React.FC<ListItemProps> = ({ className, text, id, isDone }) => {
   const dispatch = useAppDispatch();
 
   return (
