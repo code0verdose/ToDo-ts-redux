@@ -1,7 +1,12 @@
 import React from "react";
 import s from "./Input.module.sass";
 
-const Input = ({ value, setValue }) => {
+interface InputProp {
+  value: string;
+  setValue: (str: string) => void;
+}
+
+const Input: React.FC<InputProp> = ({ value, setValue }) => {
   return (
     <input
       className={s.Input}

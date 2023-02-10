@@ -1,12 +1,12 @@
 import React from "react";
 import s from "./ListBottom.module.sass";
 import { Button } from "../../Button/ui/Button";
-import { useDispatch, useSelector } from "react-redux";
 import { removeIsDoneTodo, removeAllTodo } from "../../../store/todoSlice";
+import { useAppDispatch, useAppSelector } from "../../../app/global/hooks/hook";
 
 const ListBottom = () => {
-  const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos.todos);
+  const dispatch = useAppDispatch();
+  const todos = useAppSelector((state) => state.todos.list);
 
   if (!todos.length) return null;
 

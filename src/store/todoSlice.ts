@@ -1,19 +1,18 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type Todo = {
-  id: string,
-  text: string,
-  isDone: boolean
-}
+  id: string;
+  text: string;
+  isDone: boolean;
+};
 
 type TodoState = {
-  list: Todo[]
-}
+  list: Todo[];
+};
 
 const initialState: TodoState = {
-  list: []
-}
-
+  list: [],
+};
 
 // const savedTodos = JSON.parse(localStorage.getItem("todos")) ?? [];
 
@@ -29,7 +28,7 @@ const todoSlice = createSlice({
       });
     },
     removeTodo(state, action: PayloadAction<string>) {
-      state.list = state.list.filter((todo) => todo.id !== action.payload.id);
+      state.list = state.list.filter((todo) => todo.id !== action.payload);
     },
     removeAllTodo(state) {
       state.list = [];
@@ -38,9 +37,7 @@ const todoSlice = createSlice({
       state.list = state.list.filter((todo) => !todo.isDone);
     },
     toggleIsDone(state, action: PayloadAction<string>) {
-      const toggledItem = state.list.find(
-        (todo) => todo.id === action.payload
-      );
+      const toggledItem = state.list.find((todo) => todo.id === action.payload);
       if (toggledItem) {
         toggledItem.isDone = !toggledItem.isDone;
       }

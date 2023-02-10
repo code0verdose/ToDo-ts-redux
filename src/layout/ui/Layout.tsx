@@ -2,7 +2,11 @@ import React from "react";
 import { Header } from "../../components/Header/ui/Header";
 import { Footer } from "../../components/Footer";
 
-const Layout = ({ children }) => {
+interface LayoutProp {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProp> = ({ children }) => {
   return (
     <>
       <Header />

@@ -2,23 +2,30 @@ import React from "react";
 import s from "./ListItem.module.sass";
 import clsx from "clsx";
 import { Button } from "../../Button/ui/Button";
-import { useDispatch } from "react-redux";
 import { removeTodo, toggleIsDone } from "../../../store/todoSlice";
+import { useAppDispatch } from "../../../app/global/hooks/hook";
 
-const ListItem = ({ className, text, id, isDone }) => {
-  const dispatch = useDispatch();
+interface ListItemProp {
+  className?: string;
+  text: string;
+  id: string;
+  isDone: boolean;
+}
+
+const ListItem: React.FC<ListItemProp> = ({ className, text, id, isDone }) => {
+  const dispatch = useAppDispatch();
 
   return (
     <li className={clsx(s.ListItem, className)}>
       <label>
         <input
-          onChange={() => dispatch(toggleIsDone({ id }))}
+          onChange={() => dispatch(toggleIsDone(id))}
           checked={isDone}
           type="checkbox"
         />
         <span>{text}</span>
       </label>
-      <Button handleClick={() => dispatch(removeTodo({ id }))} text="❌" />
+      <Button handleClick={() => dispatch(removeTodo(id))} text="❌" />
     </li>
   );
 };

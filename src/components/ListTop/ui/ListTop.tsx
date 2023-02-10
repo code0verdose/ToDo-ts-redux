@@ -3,16 +3,16 @@ import s from "./ListTop.module.sass";
 import { Input } from "../../Input/ui/Input";
 import { Button } from "../../Button/ui/Button";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { addTodo } from "../../../store/todoSlice";
+import { useAppDispatch } from "../../../app/global/hooks/hook";
 
 const ListTop = () => {
   const [value, setValue] = useState("");
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const addTask = () => {
     if (value.trim().length) {
-      dispatch(addTodo({ value }));
+      dispatch(addTodo(value));
       setValue("");
     }
   };

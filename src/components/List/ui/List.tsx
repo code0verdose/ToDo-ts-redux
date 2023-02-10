@@ -1,10 +1,10 @@
 import React from "react";
 import { ListItem } from "../../ListItem";
-import { useSelector } from "react-redux";
 import s from "./List.module.sass";
+import { useAppSelector } from "../../../app/global/hooks/hook";
 
 const List = () => {
-  const todos = useSelector((state) => state.todos.todos);
+  const todos = useAppSelector((state) => state.todos.list);
 
   if (!todos.length) return null;
 
