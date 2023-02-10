@@ -1,0 +1,29 @@
+@import "vars"
+
+.btn
+  border-radius: 4px
+  padding: 10px 16px
+  text-align: center
+  font-weight: 600
+  font-size: 16px
+  line-height: 19px
+  transition: .3s
+  &__add
+    background: $btn-add
+    min-width: 166px
+    float: right
+    &:hover
+      background: orange
+      transition: .3s
+  &__del
+    &_done
+      background: $btn-del-done
+      &:hover
+        background: darken($btn-del-done, 20)
+        transition: .3s
+    &_all
+      background: $btn-del-all
+      float: right
+      &:hover
+        background: darken($btn-del-all, 20)
+        transition: .3s
